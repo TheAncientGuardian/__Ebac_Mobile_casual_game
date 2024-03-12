@@ -51,5 +51,9 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "__Ebac_Mobile_casual_game.sln"
+    "dotnet.defaultSolution": "__Ebac_Mobile_casual_game.sln",
+    "cSpell.words": [
+        "lerp",
+        "Lerp"
+    ]
 }

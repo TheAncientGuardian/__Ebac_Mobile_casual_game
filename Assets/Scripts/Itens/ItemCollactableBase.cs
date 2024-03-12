@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemCollactableBase : MonoBehaviour
 {
     public string compareTag = "Player";
-    public ParticleSystem particleSystem;
+    public ParticleSystem isParticleSystem;
     public float timeToHide = 3;
     public GameObject graphicItem;
     [Header("Sounds")]
@@ -14,7 +14,7 @@ public class ItemCollactableBase : MonoBehaviour
     {
         //if(particleSystem != null) particleSystem.transform.SetParent(null);
     }
-    private void OnTriggerEnter2D(Collider2D collision) 
+    private void OnTriggerEnter(Collider collision) 
     {
         if(collision.transform.CompareTag(compareTag))
         {
@@ -36,7 +36,7 @@ public class ItemCollactableBase : MonoBehaviour
 
     protected virtual void OnCollect()
     {
-        if(particleSystem != null) particleSystem.Play();
+        if(isParticleSystem != null) isParticleSystem.Play();
         if(audioSource != null) audioSource.Play();
     }
 }
