@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private  bool _canRun;
     private Vector3 _pos;
     public GameObject endScreen;
+    public GameObject startScreen;
 
     void Update()
     {
@@ -39,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == tagToCheckEndLine);
+        if(other.transform.tag == tagToCheckEndLine)
         {
             EndGame();
         }
@@ -53,5 +54,6 @@ public class PlayerController : MonoBehaviour
     public void StartToRun()
     {
         _canRun =true;
+        startScreen.SetActive(false);
     }
 }
