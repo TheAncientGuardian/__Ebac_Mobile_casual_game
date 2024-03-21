@@ -24,7 +24,7 @@ public class ItemCollactableBase : MonoBehaviour
     protected virtual void Collect()
     {
         if(graphicItem != null)graphicItem.SetActive(false);
-        Debug.Log("+1 Coin!");
+        //Debug.Log("+1 Coin!");
         Invoke("HideObject", timeToHide);
         OnCollect();
     }
