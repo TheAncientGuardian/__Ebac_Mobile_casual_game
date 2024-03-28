@@ -6,7 +6,7 @@ public class ArtManager : MonoBehaviour
 {
     public enum ArtType
     {
-        TYPE_010,
+        TYPE_01,
         TYPE_02,
         TYPE_03
     }
