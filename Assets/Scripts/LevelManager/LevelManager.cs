@@ -45,7 +45,7 @@ public class LevelManager : MonoBehaviour
         _index = 0;
     }
     #region 
-    private void CreateLevelPieces()
+    /*private void CreateLevelPieces()
     {
         //StartCoroutine(CreateLevelPiecesCoroutine());
         _spawnedPieces = new List<LevelPieceBase>();
@@ -62,7 +62,26 @@ public class LevelManager : MonoBehaviour
         {
             CreateLevelPiece(levelPiecesEnd);
         }
+    }*/
+
+    private void CreateLevelPieces()
+{
+    _spawnedPieces = new List<LevelPieceBase>();
+
+    // Adding the start piece - only one piece is added, so no loop is needed
+    CreateLevelPiece(levelPiecesStart);
+
+    // Creating middle pieces
+    for (int i = 0; i < piecesNumber; i++)
+    {
+        CreateLevelPiece(levelPieces);
     }
+
+    // Adding the end piece - only one piece is added, so no loop is needed
+    CreateLevelPiece(levelPiecesEnd);
+}
+
+
     private void   CreateLevelPiece(List<LevelPieceBase> list)
     {
         var piece = list[Random.Range(0, list.Count)];
