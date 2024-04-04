@@ -113,6 +113,10 @@ public class LevelManager : MonoBehaviour
 
             spawnedPieces.transform.position = lastPiece.endPiece.position;
         }
+        foreach(var p in spawnedPieces.GetComponentInChildren<ArtPiece>())
+        {
+            p.ChangePiece(ArtManager.Instance.GetSetupByType(_currSetup.artType).gameObject);
+        }
 
         _spawnedPieces.Add(spawnedPieces);
     }

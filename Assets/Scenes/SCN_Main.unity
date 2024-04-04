@@ -2551,10 +2551,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piece_02
       objectReference: {fileID: 0}
-    - target: {fileID: 6026708127040399807, guid: 166181ed3aaf3be4aadc4eaa8c34f4ca, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8510398889107297894, guid: 166181ed3aaf3be4aadc4eaa8c34f4ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.099999666
@@ -2608,7 +2604,7 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1308649598}
   - {fileID: 1893578612}
-  - {fileID: 1948565889}
   - {fileID: 5250470115508669301}
+  - {fileID: 1948565889}
   - {fileID: 706676321}
   - {fileID: 1886996567}
