@@ -2053,19 +2053,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: {fileID: 1020363578}
-  levels: []
-  levelPiecesStart:
-  - {fileID: 1973060848643320432, guid: f46da6159657120409c79a14d061bde7, type: 3}
-  levelPieces:
-  - {fileID: 1973060848643320432, guid: 4c3256704d0ff3a40a0d17ceec384336, type: 3}
-  - {fileID: 6802459926996617863, guid: 166181ed3aaf3be4aadc4eaa8c34f4ca, type: 3}
-  - {fileID: 6802459926996617863, guid: e8d3b5da18d83b743b9983ca92c6b026, type: 3}
-  - {fileID: 6802459926996617863, guid: e37d5810dd2dd8b4da307c1399897d16, type: 3}
-  levelPiecesEnd:
-  - {fileID: 1973060848643320432, guid: 9b43878dd1fb5ee4d9194b3782807fc7, type: 3}
-  piecesStartNumber: 1
-  piecesNumber: 5
-  piecesEndNumber: 1
+  levels:
+  - {fileID: 1128187295050455088, guid: dc23a54e4f9e1424f85345fd562d7971, type: 3}
+  - {fileID: 1128187295050455088, guid: 780f69486ee9fa34486891e59ae9debb, type: 3}
+  levelPieceBaseSetups:
+  - {fileID: 11400000, guid: 4d9cf67a406907c448e6579f7effd0f2, type: 2}
+  - {fileID: 11400000, guid: 9c540cae6c4d81e43b43902ad4cdce2a, type: 2}
   timeBetweenPieces: 0.3
   _index: 0
   _spawnedPieces: []
@@ -2616,6 +2609,6 @@ SceneRoots:
   - {fileID: 1308649598}
   - {fileID: 1893578612}
   - {fileID: 1948565889}
-  - {fileID: 1886996567}
   - {fileID: 5250470115508669301}
   - {fileID: 706676321}
+  - {fileID: 1886996567}

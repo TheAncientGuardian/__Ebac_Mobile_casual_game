@@ -8,17 +8,13 @@ public class LevelManager : MonoBehaviour
     public Transform container;
     public List<GameObject> levels;
 
-    [Header("Pieces")]
-    public List<LevelPieceBase> levelPiecesStart;
-    public List<LevelPieceBase> levelPieces;
-    public List<LevelPieceBase> levelPiecesEnd;
-    public int piecesStartNumber = 3;
-    public int piecesNumber = 5;
-    public int piecesEndNumber = 1;
+    public List<LevelPieceBaseSetup> levelPieceBaseSetups;
     public float timeBetweenPieces = .3f;
     [SerializeField] private int _index;
     private GameObject _currentLevel;
-    public List<LevelPieceBase> _spawnedPieces;
+    public List<LevelPieceBase> _spawnedPieces = new List<LevelPieceBase>();
+    private LevelPieceBaseSetup _currSetup;
+
     private void Awake() 
     {
         //SpawnNextLevel();
@@ -66,19 +62,43 @@ public class LevelManager : MonoBehaviour
 
     private void CreateLevelPieces()
 {
-    _spawnedPieces = new List<LevelPieceBase>();
+    CleanSpawnedPieces();
 
-    // Adding the start piece - only one piece is added, so no loop is needed
-    CreateLevelPiece(levelPiecesStart);
-
-    // Creating middle pieces
-    for (int i = 0; i < piecesNumber; i++)
+    if(_currSetup != null)
     {
-        CreateLevelPiece(levelPieces);
+        _index++;
+        if(_index >= levelPieceBaseSetups.Count)
+        {
+            ResetLevelIndex();
+        }
     }
 
-    // Adding the end piece - only one piece is added, so no loop is needed
-    CreateLevelPiece(levelPiecesEnd);
+    _currSetup = levelPieceBaseSetups[_index];
+
+    for(int i = 0; i < _currSetup.piecesNumber; i++)
+        {
+            CreateLevelPiece(_currSetup.levelPiecesStart);
+        }
+        for(int i = 0; i < _currSetup.piecesNumber; i++)
+        {
+            CreateLevelPiece(_currSetup.levelPieces);
+        }
+        /*for(int i = 0; i < _currSetup.piecesNumber; i++)
+        {
+            CreateLevelPiece(_currSetup.levelPiecesEnd);
+        }*/
+        
+        //i only need one ( 1) Final piece.
+        bool hasSpawned = false;
+        for(int i = 0; i < _currSetup.piecesNumber; i++)
+        {
+            if (!hasSpawned)
+        {
+            CreateLevelPiece(_currSetup.levelPiecesEnd);
+            hasSpawned = true;
+        }
+}
+
 }
 
 
@@ -97,13 +117,21 @@ public class LevelManager : MonoBehaviour
         _spawnedPieces.Add(spawnedPieces);
     }
 
+    private void CleanSpawnedPieces()
+    {
+        for(int i = _spawnedPieces.Count -1; i >= 0;i--)
+        {
+            Destroy(_spawnedPieces[i].gameObject);
+        }
+        _spawnedPieces.Clear();
+    }
     IEnumerator CreateLevelPiecesCoroutine()
     {
         _spawnedPieces = new List<LevelPieceBase>();
         
-        for(int i = 0; i < piecesNumber; i++)
+        for(int i = 0; i < _currSetup.piecesNumber; i++)
         {
-            CreateLevelPiece(levelPieces);
+            CreateLevelPiece(_currSetup.levelPieces);
             yield return new WaitForSeconds(timeBetweenPieces);
         }
     }
