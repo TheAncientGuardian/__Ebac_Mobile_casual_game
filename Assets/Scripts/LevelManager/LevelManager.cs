@@ -97,6 +97,8 @@ public class LevelManager : MonoBehaviour
             CreateLevelPiece(_currSetup.levelPiecesEnd);
             hasSpawned = true;
         }
+
+        ColorManager.Instance.ChangeColorByType(_currSetup.artType);
 }
 
 }
@@ -113,10 +115,11 @@ public class LevelManager : MonoBehaviour
 
             spawnedPieces.transform.position = lastPiece.endPiece.position;
         }
-        foreach(var p in spawnedPieces.GetComponentInChildren<ArtPiece>())
+        foreach (var p in spawnedPieces.GetComponentsInChildren<ArtPiece>())
         {
             p.ChangePiece(ArtManager.Instance.GetSetupByType(_currSetup.artType).gameObject);
         }
+
 
         _spawnedPieces.Add(spawnedPieces);
     }
